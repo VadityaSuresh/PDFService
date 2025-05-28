@@ -1,20 +1,22 @@
 package com.example.pdfservice.controller;
 
-import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Base64;
+import java.util.Map;
 
-import org.springframework.core.io.ClassPathResource;
+import javax.annotation.PostConstruct;
+
 import org.springframework.http.MediaType;
-import org.springframework.util.StreamUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
-import javax.annotation.PostConstruct;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-import java.util.Map;
+import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 
 @RestController
 @RequestMapping("/api/pdf")
