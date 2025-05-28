@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Service Request Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; }
+    .container { background: #fff; padding: 20px; max-width: 800px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { color: #555; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+    td { border: 1px solid #ccc; padding: 8px; vertical-align: top; }
+    .no-border td { border: none; padding: 4px; }
+    .header { font-weight: bold; background-color: #f0f0f0; }
+    .description { background: #c49100; color: white; text-align: center; padding: 10px; font-weight: bold; }
+    .description-box { background: #fefefe; height: 100px; border: 1px solid #ccc; padding: 10px; }
+    .smartsheet { float: right; text-align: center; border: 1px solid #ccc; width: 250px; height: 150px; padding-top: 10px; margin-left: 20px; }
+    .green-btn { background: #00c000; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; display: inline-block; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div style="overflow: hidden;">
+    <div style="float: left;">
+      <h2>CUSTOMER SERVICE<br />REQUEST FORM</h2>
+      <table class="no-border">
+        <tr><td th:text="${headerInput1}">Header 1</td></tr>
+        <tr><td th:text="${headerInput2}">Header 2</td></tr>
+        <tr><td th:text="${headerInput3}">Header 3</td></tr>
+        <tr><td th:text="${headerInput4}">Header 4</td></tr>
+      </table>
+    </div>
+    <div class="smartsheet">
+      <a href="#" class="green-btn">Try Smartsheet for FREE</a>
+    </div>
+  </div>
+
+  <h3 style="text-align: right; color: gray;">WORK ORDER</h3>
+
+  <table>
+    <tr class="header">
+      <td>REQUESTER NAME</td>
+      <td th:text="${requesterName}">Requester Name</td>
+      <td>LOCATION ADDRESS</td>
+      <td th:text="${locationAddress}">Location</td>
+    </tr>
+    <tr>
+      <td>PHONE</td>
+      <td th:text="${phone}">Phone</td>
+      <td rowspan="2" colspan="2" th:text="${locationDetails}">Details</td>
+    </tr>
+    <tr>
+      <td>EMAIL</td>
+      <td th:text="${email}">Email</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr class="header">
+      <td>PRIORITY LEVEL</td>
+      <td th:text="${priorityLevel}">Priority</td>
+      <td>ORDER DATE AND TIME</td>
+      <td th:text="${orderDateTime}">Order Time</td>
+    </tr>
+    <tr>
+      <td>DATE NEEDED</td>
+      <td th:text="${dateNeeded}">Needed</td>
+      <td>DATE DELIVERED</td>
+      <td th:text="${dateDelivered}">Delivered</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr class="header">
+      <td>WORK ASSIGNED TO</td>
+      <td th:text="${workAssignedTo}">Assigned</td>
+      <td>WORK BILLED TO</td>
+      <td th:text="${workBilledTo}">Billed</td>
+    </tr>
+  </table>
+
+  <div class="description">REQUEST DESCRIPTION</div>
+  <div class="description-box" th:text="${description}">Description</div>
+</div>
+
+</body>
+</html>
